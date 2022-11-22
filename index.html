@@ -82,6 +82,42 @@
     
     <hr>
   </body>
+
+<table id="comparisons">       
+      <tr>
+        <td>
+          Current Price
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="comparison_current" onkeyup="display_cost()"></td>
+      </tr>
+      <tr>
+        <td>
+          Target Price
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="comparison_target" onkeyup="display_cost()"></td>
+      </tr>
+      <tr>
+        <td>
+          Percentage Savings
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="comparison_percentage" readonly></td>
+      </tr>
+      <tr>
+        <td>
+          Dollar Savings
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="comparison_dollar" readonly></td>
+      </tr>
+    </table>
+
   <script>
     // Function that evaluates the digit and return result
     function display_cost() {
@@ -91,16 +127,18 @@
       let varTargetCrushCost = document.getElementById("crush_cost").value
       let varTargetCrushFrequency = document.getElementById("target_crush_frequency").value  
 
-      //calculate existing cost
+      //calculations
       let varCurrentTotalCost = parseInt(varCurrentHaulCost) * parseInt(varCurrentHaulFrequency)
       let varTargetTotalCost = (parseInt(varTargetCrushFrequency) * parseInt(varTargetCrushCost))+(parseInt(varCurrentHaulCost) * parseInt(varTargetHaulFrequency))
+      let varCurrentTotalCost = parseInt(varCurrentHaulCost) * parseInt(varCurrentHaulFrequency)
+
             
       //print values
       document.getElementById("existing_haul_rate").value = varCurrentHaulCost
       document.getElementById("calculated_result").value = varCurrentTotalCost
-            
-      //calculate and print target waste cost
       document.getElementById("target_waste_cost").value = varTargetTotalCost
+      document.getElementById("comparison_current").value = varCurrentTotalCost
+      document.getElementById("comparison_target").value = varTargetTotalCost
     }
     
     // Function that clear the display
