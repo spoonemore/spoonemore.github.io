@@ -1,15 +1,113 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+  
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2" />
     <title>My Sample PWA</title>
     <link rel="manifest" href="/manifest.json">
+  </head>
+  
   <body>
-    <h1>My Sample PWA</h1>
+    <table id="exsting-haul-cost">       
+      <tr>
+        <td>
+          Existing Haul Rate
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="cost_input" onkeyup="display_cost()"></td>
+      </tr>
+      <tr>
+        <td>
+          Eixsting Haul Frequency
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="frequency_input" onkeyup="display_cost()"></td>
+      </tr>
+      <tr>
+        <td>
+          Existing Waste Cost
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="calculated_result" readonly></td>
+      </tr>
+    </table>
+    
+    <hr>
+
+    <table id="target-haul-cost">       
+      <td>
+        Existing Haul Rate
+      </td>
+      <tr>
+        <td colspan="1"><input type="text" id="existing_haul_rate" name="country" readonly></td>
+      </tr>
+      <tr>
+        <td>
+          Target Haul Frequency
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="target_haul_frequency" onkeyup="display_cost()"></td>
+      </tr>
+      <tr>
+        <td>
+          Target Crush Frequency
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="target_crush_frequency" onkeyup="display_cost()"></td>
+      </tr>
+      <tr>
+        <td>
+          Crush Rate
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="crush_cost" onkeyup="display_cost()"></td>
+      </tr>
+      <tr>
+        <td>
+          Target Waste Cost
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1"><input type="number" id="target_waste_cost" onkeyup="display_cost()" readonly></td>
+      </tr>
+    </table>
+    
+    <hr>
   </body>
   <script>
+    // Function that evaluates the digit and return result
+    function display_cost() {
+      let varCurrentHaulCost = document.getElementById("cost_input").value
+      let varCurrentHaulFrequency = document.getElementById("frequency_input").value
+      let varTargetHaulFrequency = document.getElementById("target_haul_frequency").value
+      let varTargetCrushCost = document.getElementById("crush_cost").value
+      let varTargetCrushFrequency = document.getElementById("target_crush_frequency").value  
+
+      //calculate existing cost
+      let varCurrentTotalCost = parseInt(varCurrentHaulCost) * parseInt(varCurrentHaulFrequency)
+      let varTargetTotalCost = (parseInt(varTargetCrushFrequency) * parseInt(varTargetCrushCost))+(parseInt(varCurrentHaulCost) * parseInt(varTargetHaulFrequency))
+            
+      //print values
+      document.getElementById("existing_haul_rate").value = varCurrentHaulCost
+      document.getElementById("calculated_result").value = varCurrentTotalCost
+            
+      //calculate and print target waste cost
+      document.getElementById("target_waste_cost").value = varTargetTotalCost
+    }
+    
+    // Function that clear the display
+    function clr() {
+      document.getElementById("result").value = ""
+    }
+
     if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js', { scope: '/' });
     }
