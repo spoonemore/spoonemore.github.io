@@ -1,12 +1,11 @@
 
-
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="shortcut icon" href="https://github.com/spoonemore/spoonemore.github.io/blob/main/crushr_logo.png?raw=true" />
+    <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2" />
     <title>My Sample PWA</title>
     <link rel="manifest" href="/manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
@@ -17,7 +16,7 @@ body {
   background-color: #6ac41e; 
   color:white;
   font-family: 'Quicksand', sans-serif;
-
+  font-size: 20px;
 }
 input {
   border-radius: 5px;
@@ -25,10 +24,16 @@ input {
   color: black;
   border: 2px solid #ccc;
   font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+}
+
+.green-text{
+   color: #6ac41e;
 }
 
 input.read-only{
-  background: #cccccc;
+  background: #6ac41e;
+  border: #6ac41e;
   color:white;
 }
 
@@ -53,7 +58,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="existing-haul-cost-box" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input type="number" id="existing-haul-cost-box" onkeyup="display_cost()"></td>
       </tr>
 
       <tr>
@@ -62,7 +67,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="existing-haul-frequency-box" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="green-text">_ </span><input type="number" id="existing-haul-frequency-box" onkeyup="display_cost()"></td>
       </tr>
       <tr>
         <td>
@@ -70,7 +75,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$</span><input class="read-only" type="number" id="existing-total-cost-box" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input class="read-only" type="number" id="existing-total-cost-box" readonly></td>
       </tr>
     </table>
     
@@ -81,7 +86,7 @@ input::-webkit-inner-spin-button {
         Existing Haul Rate
       </td>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$</span><input type="text" id="existing_haul_rate" name="country" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input  class="read-only" type="number" id="existing_haul_rate" name="country" readonly></td>
       </tr>
       <tr>
         <td>
@@ -89,7 +94,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="target_haul_frequency" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="green-text">_ </span><input type="number" id="target_haul_frequency" onkeyup="display_cost()"></td>
       </tr>
       <tr>
         <td>
@@ -97,7 +102,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="target_crush_frequency" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="green-text">_ </span><input type="number" id="target_crush_frequency" onkeyup="display_cost()"></td>
       </tr>
       <tr>
         <td>
@@ -105,7 +110,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="crush_cost" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input type="number" id="crush_cost" onkeyup="display_cost()"></td>
       </tr>
       <tr>
         <td>
@@ -113,7 +118,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="target_waste_cost" onkeyup="display_cost()" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input  class="read-only" type="number" id="target_waste_cost" onkeyup="display_cost()" readonly></td>
       </tr>
     </table>
     
@@ -127,7 +132,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="comparison_current" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input class="read-only" type="number" id="comparison_current" onkeyup="display_cost()" readonly></td>
       </tr>
       <tr>
         <td>
@@ -135,7 +140,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="comparison_target" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input class="read-only" type="number" id="comparison_target" onkeyup="display_cost()" readonly></td>
       </tr>
       <tr>
         <td>
@@ -143,7 +148,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="comparison_percentage" readonly></td>
+        <td colspan="1"><span class="green-text">_ </span><input class="read-only" type="text" id="comparison_percentage" readonly></td>
       </tr>
       <tr>
         <td>
@@ -151,7 +156,15 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="comparison_dollar" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input class="read-only" type="number" id="comparison_dollar" readonly></td>
+      </tr>
+    </table>
+
+<table>       
+      <tr>
+        <td>
+           <input type="button" value="Reset" onclick="clr()"> </td>
+        </td>
       </tr>
     </table>
 </div>
@@ -175,7 +188,8 @@ input::-webkit-inner-spin-button {
       //calculations
       let varCurrentTotalCost = parseInt(varCurrentHaulCost) * parseInt(varCurrentHaulFrequency)
       let varTargetTotalCost = (parseInt(varTargetCrushFrequency) * parseInt(varTargetCrushCost))+(parseInt(varCurrentHaulCost) * parseInt(varTargetHaulFrequency))
-      let varPercentSavings = 1- (parseInt(varTargetTotalCost) / parseInt(varCurrentTotalCost))
+      let varPercentSavings_unformatted = 1- (parseInt(varTargetTotalCost) / parseInt(varCurrentTotalCost))
+      let varPercentSavings_formatted = Number(varPercentSavings_unformatted/100).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
       let varDollarSavings = parseInt(varCurrentTotalCost) - parseInt(varTargetTotalCost)
             
       //print values
@@ -184,13 +198,24 @@ input::-webkit-inner-spin-button {
       document.getElementById("target_waste_cost").value = varTargetTotalCost
       document.getElementById("comparison_current").value = varCurrentTotalCost
       document.getElementById("comparison_target").value = varTargetTotalCost
-      document.getElementById("comparison_percentage").value = varPercentSavings
+      document.getElementById("comparison_percentage").value = varPercentSavings_formatted
       document.getElementById("comparison_dollar").value = varDollarSavings
     }
     
     // Function that clear the display
     function clr() {
-      document.getElementById("result").value = ""
+      document.getElementById("existing_haul_rate").value = ""
+      document.getElementById("existing-total-cost-box").value = ""
+      document.getElementById("target_waste_cost").value = ""
+      document.getElementById("comparison_current").value = ""
+      document.getElementById("comparison_target").value = ""
+      document.getElementById("comparison_percentage").value = ""
+      document.getElementById("comparison_dollar").value = ""
+     document.getElementById("existing-haul-cost-box").value = ""
+      document.getElementById("existing-haul-frequency-box").value = ""
+      document.getElementById("target_haul_frequency").value = ""
+      document.getElementById("target_crush_frequency").value = ""
+      document.getElementById("crush_cost").value = ""
     }
 
     if('serviceWorker' in navigator) {
