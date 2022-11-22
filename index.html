@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   
@@ -8,17 +9,51 @@
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2" />
     <title>My Sample PWA</title>
     <link rel="manifest" href="/manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
   </head>
+
+<style>
+body {
+  background-color: #6ac41e; 
+  color:white;
+  font-family: 'Quicksand', sans-serif;
+
+}
+input {
+  border-radius: 5px;
+  background: #fbfbfb;
+  color: black;
+  border: 2px solid #ccc;
+  font-family: 'Quicksand', sans-serif;
+}
+
+input.read-only{
+  background: #cccccc;
+  color:white;
+}
+
+input[type=text]:focus {
+  border: 1px solid #555;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+</style>
   
   <body>
-    <table>       
+<div>
+    <table >       
       <tr>
         <td>
           Existing Haul Rate
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="existing-haul-cost-box" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="existing-haul-cost-box" onkeyup="display_cost()"></td>
       </tr>
 
       <tr>
@@ -35,7 +70,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="existing-total-cost-box" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$</span><input class="read-only" type="number" id="existing-total-cost-box" readonly></td>
       </tr>
     </table>
     
@@ -46,7 +81,7 @@
         Existing Haul Rate
       </td>
       <tr>
-        <td colspan="1"><input type="text" id="existing_haul_rate" name="country" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$</span><input type="text" id="existing_haul_rate" name="country" readonly></td>
       </tr>
       <tr>
         <td>
@@ -70,7 +105,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="crush_cost" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="crush_cost" onkeyup="display_cost()"></td>
       </tr>
       <tr>
         <td>
@@ -78,7 +113,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="target_waste_cost" onkeyup="display_cost()" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="target_waste_cost" onkeyup="display_cost()" readonly></td>
       </tr>
     </table>
     
@@ -92,7 +127,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="comparison_current" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="comparison_current" onkeyup="display_cost()"></td>
       </tr>
       <tr>
         <td>
@@ -100,7 +135,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="comparison_target" onkeyup="display_cost()"></td>
+        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="comparison_target" onkeyup="display_cost()"></td>
       </tr>
       <tr>
         <td>
@@ -116,10 +151,10 @@
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="comparison_dollar" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$</span><input type="number" id="comparison_dollar" readonly></td>
       </tr>
     </table>
-
+</div>
 
 
   <script>
