@@ -27,6 +27,11 @@ input {
   font-size: 20px;
 }
 
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .green-text{
    color: #6ac41e;
 }
@@ -75,7 +80,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$ </span><input class="read-only" type="number" id="existing-total-cost-box" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input tabindex="-1" class="read-only" type="number" id="existing-total-cost-box" readonly></td>
       </tr>
     </table>
     
@@ -86,7 +91,7 @@ input::-webkit-inner-spin-button {
         Existing Haul Rate
       </td>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$ </span><input  class="read-only" type="number" id="existing_haul_rate" name="country" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input tabindex="-1" class="read-only" type="number" id="existing_haul_rate" name="country" readonly></td>
       </tr>
       <tr>
         <td>
@@ -118,7 +123,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$ </span><input  class="read-only" type="number" id="target_waste_cost" onkeyup="display_cost()" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input tabindex="-1" class="read-only" type="number" id="target_waste_cost" onkeyup="display_cost()" readonly></td>
       </tr>
     </table>
     
@@ -132,7 +137,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$ </span><input class="read-only" type="number" id="comparison_current" onkeyup="display_cost()" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input tabindex="-1" class="read-only" type="number" id="comparison_current" onkeyup="display_cost()" readonly></td>
       </tr>
       <tr>
         <td>
@@ -140,7 +145,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$ </span><input class="read-only" type="number" id="comparison_target" onkeyup="display_cost()" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input tabindex="-1" class="read-only" type="number" id="comparison_target" onkeyup="display_cost()" readonly></td>
       </tr>
       <tr>
         <td>
@@ -148,7 +153,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="green-text">_ </span><input class="read-only" type="text" id="comparison_percentage" readonly></td>
+        <td colspan="1"><span class="green-text">_ </span><input tabindex="-1" class="read-only" type="text" id="comparison_percentage" readonly></td>
       </tr>
       <tr>
         <td>
@@ -156,7 +161,7 @@ input::-webkit-inner-spin-button {
         </td>
       </tr>
       <tr>
-        <td colspan="1"><span class="input-group-addon">$ </span><input class="read-only" type="number" id="comparison_dollar" readonly></td>
+        <td colspan="1"><span class="input-group-addon">$ </span><input tabindex="-1" class="read-only" type="number" id="comparison_dollar" readonly></td>
       </tr>
     </table>
 
@@ -173,7 +178,7 @@ input::-webkit-inner-spin-button {
   <script>
     // Function that evaluates the digit and return result
     function display_cost() {
-      
+     
       //current haul cost
       let varCurrentHaulCost = document.getElementById("existing-haul-cost-box").value
       //current haul frequency
