@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   
@@ -10,22 +11,23 @@
   </head>
   
   <body>
-    <table id="exsting-haul-cost">       
+    <table>       
       <tr>
         <td>
           Existing Haul Rate
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="cost_input" onkeyup="display_cost()"></td>
+        <td colspan="1"><input type="number" id="existing-haul-cost-box" onkeyup="display_cost()"></td>
       </tr>
+
       <tr>
         <td>
-          Eixsting Haul Frequency
+          Existing Haul Frequency
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="frequency_input" onkeyup="display_cost()"></td>
+        <td colspan="1"><input type="number" id="existing-haul-frequency-box" onkeyup="display_cost()"></td>
       </tr>
       <tr>
         <td>
@@ -33,13 +35,13 @@
         </td>
       </tr>
       <tr>
-        <td colspan="1"><input type="number" id="calculated_result" readonly></td>
+        <td colspan="1"><input type="number" id="existing-total-cost-box" readonly></td>
       </tr>
     </table>
     
     <hr>
 
-    <table id="target-haul-cost">       
+    <table>       
       <td>
         Existing Haul Rate
       </td>
@@ -83,7 +85,7 @@
     <hr>
   </body>
 
-<table id="comparisons">       
+<table>       
       <tr>
         <td>
           Current Price
@@ -118,27 +120,37 @@
       </tr>
     </table>
 
+
+
   <script>
     // Function that evaluates the digit and return result
     function display_cost() {
-      let varCurrentHaulCost = document.getElementById("cost_input").value
-      let varCurrentHaulFrequency = document.getElementById("frequency_input").value
+      
+      //current haul cost
+      let varCurrentHaulCost = document.getElementById("existing-haul-cost-box").value
+      //current haul frequency
+      let varCurrentHaulFrequency = document.getElementById("existing-haul-frequency-box").value
+      //target haul frequency
       let varTargetHaulFrequency = document.getElementById("target_haul_frequency").value
+      //target crush cost
       let varTargetCrushCost = document.getElementById("crush_cost").value
+      //target crush frequency
       let varTargetCrushFrequency = document.getElementById("target_crush_frequency").value  
 
       //calculations
       let varCurrentTotalCost = parseInt(varCurrentHaulCost) * parseInt(varCurrentHaulFrequency)
       let varTargetTotalCost = (parseInt(varTargetCrushFrequency) * parseInt(varTargetCrushCost))+(parseInt(varCurrentHaulCost) * parseInt(varTargetHaulFrequency))
-      let varCurrentTotalCost = parseInt(varCurrentHaulCost) * parseInt(varCurrentHaulFrequency)
-
+      let varPercentSavings = 1- (parseInt(varTargetTotalCost) / parseInt(varCurrentTotalCost))
+      let varDollarSavings = parseInt(varCurrentTotalCost) - parseInt(varTargetTotalCost)
             
       //print values
       document.getElementById("existing_haul_rate").value = varCurrentHaulCost
-      document.getElementById("calculated_result").value = varCurrentTotalCost
+      document.getElementById("existing-total-cost-box").value = varCurrentTotalCost
       document.getElementById("target_waste_cost").value = varTargetTotalCost
       document.getElementById("comparison_current").value = varCurrentTotalCost
       document.getElementById("comparison_target").value = varTargetTotalCost
+      document.getElementById("comparison_percentage").value = varPercentSavings
+      document.getElementById("comparison_dollar").value = varDollarSavings
     }
     
     // Function that clear the display
